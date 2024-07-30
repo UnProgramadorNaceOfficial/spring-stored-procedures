@@ -1,0 +1,53 @@
+CREATE TABLE IF NOT exists Person (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    last_name VARCHAR(255)
+);
+
+-- INSERTAR DATOS EN LA TABLA
+INSERT INTO Person(name, last_name) VALUES ('John', 'Doe');
+INSERT INTO Person(name, last_name) VALUES ('Jane', 'Smith');
+INSERT INTO Person(name, last_name) VALUES ('Alice', 'Johnson');
+INSERT INTO Person(name, last_name) VALUES ('Bob', 'Williams');
+INSERT INTO Person(name, last_name) VALUES ('Charlie', 'Brown');
+
+-- Procedimiento almacenado para consultar
+DELIMITER $$
+CREATE PROCEDURE verPersonas()
+BEGIN
+	SELECT * FROM person;
+END$$;
+
+-- Procedimiento almacenado para consultar un solo registro
+DELIMITER $$
+CREATE PROCEDURE buscarPersona(IN person_id INT)
+BEGIN
+	SELECT * FROM person WHERE id = person_id;
+END$$;
+
+-- Procedimiento almacenado para insertar un registro
+DELIMITER $$
+CREATE PROCEDURE insertarPersona(IN p_name VARCHAR(255), IN p_last_name VARCHAR(255))
+BEGIN
+    INSERT INTO Person (name, last_name) VALUES (p_name, p_last_name);
+END$$;
+
+-- Procedimiento almacenado para actualizar un registro
+DELIMITER $$
+CREATE PROCEDURE actualizarPersona(IN p_id INT, IN p_name VARCHAR(255), IN p_last_name VARCHAR(255))
+BEGIN
+    UPDATE Person SET name = p_name, last_name = p_last_name WHERE id = p_id;
+END$$
+
+-- Procedimiento almacenado para eliminar un registro
+DELIMITER $$
+CREATE PROCEDURE eliminarPersona(IN person_id INT)
+BEGIN
+    DELETE FROM Person WHERE id = person_id;
+END$$
+
+-- CALL verPersonas();
+-- CALL buscarPersona(3);
+-- CALL insertarPersona("Santiago", "Perez");
+-- CALL actualizarPersona(1, "Anyi", "Hoyos");
+-- CALL eliminarPersona(8);
