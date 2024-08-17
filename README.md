@@ -14,6 +14,6 @@ También me ayuda mucho si puedes marcar el repositorio con una estrella en la p
 
 #### Enlace al canal: https://www.youtube.com/channel/UCTXForyROk00E6jiaNKSV1A
 
-#### Enlace al Spring Initializr: https://acortar.link/kKgzLU
+#### Enlace al Spring Initializr: https://acortar.link/LKoGbh
 
 ¡Saludos!
